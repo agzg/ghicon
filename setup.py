@@ -1,7 +1,7 @@
 from requests import get
 import setuptools
 
-REPOSITORY = "https://github.com/agzg/ghicon"
+REPOSITORY = "https://github.com/agzg/ghicon/releases/latest"
 version = get(REPOSITORY).url.split("/")[-1]
 
 with open("README.md", "r") as f:
