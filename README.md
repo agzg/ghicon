@@ -1,5 +1,5 @@
 # ghicon
-**ghicon** is a GitHubesque identicon generator. It uses the seed text and the cryptographic hash function, [MD5](https://en.wikipedia.org/wiki/MD5), to create unique images called [identicons](https://en.wikipedia.org/wiki/Identicon).
+**ghicon** is a GitHubesque identicon generator. It uses seed text and the cryptographic hash function, [MD5](https://en.wikipedia.org/wiki/MD5), to create unique images called [identicons](https://en.wikipedia.org/wiki/Identicon).
 
 ## Usage
 Install **ghicon** using,
