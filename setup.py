@@ -18,7 +18,7 @@ setuptools.setup(
 	author="Ali Azam",
 	author_email="azam.vw@gmail.com",
 	url="https://github.com/agzg/ghicon",
-	download_url=f"{REPOSITORY}/archive/refs/tags/{version}.tar.gz",
+	download_url="https://github.com/agzg/ghicon/archive/refs/tags/4.2.0.tar.gz",
 	keywords=["identicon", "generator", "github", "pillow", "icon"],
 	install_requires=["pillow"],
 	classifiers=[
