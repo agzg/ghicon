@@ -9,8 +9,6 @@ import random
 from PIL import Image, ImageDraw
 from hashlib import md5
 
-md5 = lambda x: md5(x.encode()).hexdigest()
-
 def _square(image, x, y, block, pad, colour):
     x = x * block + pad
     y = y * block + pad
@@ -18,14 +16,13 @@ def _square(image, x, y, block, pad, colour):
     draw = ImageDraw.Draw(image)
     draw.rectangle((x, y, x + block, y + block), fill=colour)
 
-def identicon(seed, width=512, pad=0.1, invert=False, hasher=md5):
+def identicon(seed, width=512, pad=0.1, invert=False):
     """
     Args:
         seed (str): Seed used to generate the identicon.
         width (int, optional): The width of the image in pixels.
         pad (float, optional): Percentage border (of block) around the sprite.
-        invert(bool, optional): Invert the colour of the identicon?
-        hasher(optional): Function used to hash given seed. Leave blank for MD5.
+        invert (bool, optional): Invert the colour of the identicon.
 
     Returns:
         image: PIL.Image
@@ -40,7 +37,7 @@ def identicon(seed, width=512, pad=0.1, invert=False, hasher=md5):
     if pad <= 0.0 or pad > 0.4:
         raise ValueError("0.0 < pad < 0.4 only")
 
-    seed = hasher(seed)[-15:]
+    seed = md5(seed.encode()).hexdigest()[-15:]
  
     # Calculate image width, pixel size and padding.
     p = int(width * pad)
