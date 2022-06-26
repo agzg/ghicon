@@ -23,7 +23,7 @@ setuptools.setup(
 	install_requires=["pillow"],
 	classifiers=[
 		"License :: OSI Approved :: MIT License",
-		"Programming Language :: Python
+		"Programming Language :: Python"
 	],
 )
 
