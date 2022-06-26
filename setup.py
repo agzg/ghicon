@@ -20,7 +20,7 @@ setuptools.setup(
 	url="https://github.com/agzg/ghicon",
 	download_url=f"{REPOSITORY}/archive/refs/tags/{version}.tar.gz",
 	keywords=["identicon", "generator", "github", "pillow", "icon"],
-	install_requires=["pillow", "get"],
+	install_requires=["pillow"],
 	classifiers=[
 		"License :: OSI Approved :: MIT License",
 		"Programming Language :: Python"
