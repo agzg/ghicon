@@ -1,0 +1,2 @@
+# ghicon
+GitHubesque identicon generator.
