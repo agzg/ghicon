@@ -1,7 +1,7 @@
 # from requests import get
 import setuptools
 
-# REPOSITORY = "https://github.com/agzg/ghicon/releases/latest"
+REPOSITORY = "https://github.com/agzg/ghicon"
 # version = get(REPOSITORY).url.split("/")[-1]
 
 with open("README.md", "r") as f:
@@ -10,7 +10,7 @@ with open("README.md", "r") as f:
 setuptools.setup(
 	name="ghicon",
 	packages=setuptools.find_packages(),
-	version="0.0.1",
+	version="4.2.0",
 	license="MIT",
 	description="GitHubesque identicon generator.",
 	long_description=long_description,
