@@ -38,7 +38,7 @@ def identicon(seed, width=512, pad=0.1, invert=False, hasher=md5):
     """
 
     if pad <= 0.0 or pad > 0.4:
-        raise ValueError("0.0 <= pad < 0.4 only")
+        raise ValueError("0.0 < pad < 0.4 only")
 
     seed = hasher(seed)[-15:]
  
@@ -95,8 +95,7 @@ if __name__ == "__main__":
 
     image = identicon(args.seed, invert=args.invert)
 
-    if args.view:
-        image.show()
+    if args.view: image.show()
     
     if args.save or input("save (y/N): ") == "y":
         image.save(f"{args.seed}.png")
