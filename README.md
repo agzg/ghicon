@@ -1,10 +1,12 @@
+[![PyPI version](https://badge.fury.io/py/ghicon.svg)](https://badge.fury.io/py/ghicon)
+
 # ghicon
 **ghicon** is a GitHubesque identicon generator. It uses seed text and the cryptographic hash function, [MD5](https://en.wikipedia.org/wiki/MD5), to create unique images called [identicons](https://en.wikipedia.org/wiki/Identicon).
 
 ## Usage
 Install **ghicon** using,
 ```
-pip install ghicon
+pip install ghicon==4.2.0
 ```
 
 Then use the `generate` function,
