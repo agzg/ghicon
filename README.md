@@ -28,7 +28,6 @@ image.save("agzg.png")
 	<img src="https://raw.githubusercontent.com/agzg/ghicon/994529aaf83647e189ab6abb0550256ab2163896/examples/c.png" width="128"/>&nbsp;
 	<img src="https://raw.githubusercontent.com/agzg/ghicon/994529aaf83647e189ab6abb0550256ab2163896/examples/d.png" width="128"/>&nbsp;
 	<img src="https://raw.githubusercontent.com/agzg/ghicon/994529aaf83647e189ab6abb0550256ab2163896/examples/e.png" width="128"/>&nbsp;
-	<img src="https://raw.githubusercontent.com/agzg/ghicon/994529aaf83647e189ab6abb0550256ab2163896/examples/f.png" width="128"/>&nbsp;
 </p>
 
 ## License
