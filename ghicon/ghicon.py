@@ -7,7 +7,12 @@ license that can be found in the LICENSE file.
 import random
 
 from PIL import Image, ImageDraw
-from hashlib import md5
+from hashlib import md5, sha1, blake2b
+from string import hexdigits
+
+MD5   = lambda x: md5(x.encode()).hexdigest()
+SHA   = lambda x: sha1(x.encode()).hexdigest()
+BLAKE = lambda x: blake2b(x.encode()).hexdigest()
 
 def _square(image, x, y, block, pad, colour):
     x = x * block + pad
@@ -16,13 +21,17 @@ def _square(image, x, y, block, pad, colour):
     draw = ImageDraw.Draw(image)
     draw.rectangle((x, y, x + block, y + block), fill=colour)
 
-def identicon(seed, width=512, pad=0.1, invert=False):
+def identicon(seed, width=512, pad=0.1, invert=False, hasher='md5'):
     """
+    generate(seed, width=512, pad=0.1, invert=False, hasher='md5')
+
     Args:
         seed (str): Seed used to generate the identicon.
         width (int, optional): The width of the image in pixels.
         pad (float, optional): Percentage border (of block) around the sprite.
         invert (bool, optional): Invert the colour of the identicon.
+        hasher (str/func(str) -> str, optional): Hashing algorithm. 
+            Acceptable values of `hasher` are 'md5', 'blake', 'sha' or a custom function which accepts a string and returns a compatible hash.
 
     Returns:
         image: PIL.Image
@@ -37,16 +46,36 @@ def identicon(seed, width=512, pad=0.1, invert=False):
     if pad <= 0.0 or pad > 0.4:
         raise ValueError("0.0 < pad < 0.4 only")
 
-    seed = md5(seed.encode()).hexdigest()[-15:]
+    if type(hasher) == str:
+        hasher = hasher.lower().strip()
+
+        if hasher == 'sha':
+            hasher = SHA
+        elif hasher == 'blake':
+            hasher = BLAKE
+        elif hasher == 'md5':
+            hasher = MD5
+        else:
+            raise ValueError("hasher = 'md5', 'blake' or 'sha'")
+    else:
+        # Ensure custom hashers are compatible with algorithm.
+        # Otherwise, warn and switch to MD5.
+        test = hasher("test")
+        if type(test) != str or len(test) < 15 or not all(c in hexdigits for c in test):
+            raise ValueError("Provided hasher is incompatible")
+    
+    seed = hasher(seed)[-15:]
  
     # Calculate image width, pixel size and padding.
     p = int(width * pad)
     b = (width - 2 * p) // 5
     w = b * 5 + 2 * p
 
-    lum = 40 + int(seed[0], 16)
+    # Use the seed to create HSL.
     hue = int(seed[-6:], 16) / 0xffffff * 360
-    hsl = f"hsl({int(hue)}, 80%, {lum}%)"
+    sat = 60 + int(seed[-2], 16) / 0xff * 20
+    lum = 45 + int(seed[0], 16) / 0xff * 40
+    hsl = f"hsl({hue}, {sat}%, {lum}%)"
 
     image  = Image.new("RGB", (w, w), "#F0F0F0")
     colour = hsl
@@ -58,7 +87,7 @@ def identicon(seed, width=512, pad=0.1, invert=False):
     filled = []
 
     for i, v in enumerate(seed):
-        yes = ord(v) % 2 != 0
+        yes = int(v, 16) <= 10
         filled.append(yes)
 
         if yes and i < 10:
@@ -67,9 +96,9 @@ def identicon(seed, width=512, pad=0.1, invert=False):
         elif yes:
             _square(image, i // 5, i - 10, b, p, colour)
 
-    # Ignore completely filled or blank sprites.
-    if all(filled) or not any(filled):
-        return generate(seed, block, pad, invert, hasher)
+    # Ignore (arguably) boring sprites.
+    if all(filled) or not any(filled) or sum(filled) < 3:
+        return identicon(seed, width, pad, invert, hasher)
         
     return image
 
@@ -94,6 +123,6 @@ if __name__ == "__main__":
 
     if args.view: image.show()
     
-    if args.save or input("save (y/N): ") == "y":
+    if args.save or input("save (y/N): ").lower() in ("y", "yes"):
         image.save(f"{args.seed}.png")
 
