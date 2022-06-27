@@ -1,8 +1,6 @@
-# from requests import get
 import setuptools
 
 REPOSITORY = "https://github.com/agzg/ghicon"
-# version = get(REPOSITORY).url.split("/")[-1]
 
 with open("README.md", "r") as f:
 	long_description = f.read()
@@ -10,7 +8,7 @@ with open("README.md", "r") as f:
 setuptools.setup(
 	name="ghicon",
 	packages=setuptools.find_packages(),
-	version="4.2.0",
+	version="5.2.0",
 	license="MIT",
 	description="GitHubesque identicon generator.",
 	long_description=long_description,
@@ -18,12 +16,14 @@ setuptools.setup(
 	author="Ali Azam",
 	author_email="azam.vw@gmail.com",
 	url="https://github.com/agzg/ghicon",
-	download_url="https://github.com/agzg/ghicon/archive/refs/tags/4.2.0.tar.gz",
+	download_url="https://github.com/agzg/ghicon/archive/refs/tags/5.2.0.tar.gz",
 	keywords=["identicon", "generator", "github", "pillow", "icon"],
-	install_requires=["pillow"],
+	install_requires=["Pillow>=9.0.1"],
 	classifiers=[
 		"License :: OSI Approved :: MIT License",
-		"Programming Language :: Python"
+		"Programming Language :: Python :: 3.8",
+		"Programming Language :: Python :: 3.9",
+		"Programming Language :: Python :: 3.10"
 	],
 )
 
