@@ -6,7 +6,7 @@
 ## Usage
 Install **ghicon** using,
 ```
-pip install ghicon==5.2.0
+pip install ghicon==5.2.1
 ```
 
 Then use the `generate` function,
