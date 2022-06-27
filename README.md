@@ -6,7 +6,7 @@
 ## Usage
 Install **ghicon** using,
 ```
-pip install ghicon==5.2.1
+pip install ghicon==5.2.2
 ```
 
 Then use the `generate` function,
@@ -23,12 +23,12 @@ image.save("agzg.png")
 
 ## Examples
 <p align="center">
-	<img src="https://raw.githubusercontent.com/agzg/ghicon/7acf0b161498f188bec22181d643d5ef93ec3379/examples/a.png" width="128"/>&nbsp;
-	<img src="https://raw.githubusercontent.com/agzg/ghicon/7acf0b161498f188bec22181d643d5ef93ec3379/examples/b.png" width="128"/>&nbsp;
-	<img src="https://raw.githubusercontent.com/agzg/ghicon/7acf0b161498f188bec22181d643d5ef93ec3379/examples/c.png" width="128"/>&nbsp;
-	<img src="https://raw.githubusercontent.com/agzg/ghicon/7acf0b161498f188bec22181d643d5ef93ec3379/examples/d.png" width="128"/>&nbsp;
-	<img src="https://raw.githubusercontent.com/agzg/ghicon/7acf0b161498f188bec22181d643d5ef93ec3379/examples/e.png" width="128"/>&nbsp;
-	<img src="https://raw.githubusercontent.com/agzg/ghicon/7acf0b161498f188bec22181d643d5ef93ec3379/examples/f.png" width="128"/>&nbsp;
+	<img src="https://raw.githubusercontent.com/agzg/ghicon/994529aaf83647e189ab6abb0550256ab2163896/examples/a.png" width="128"/>&nbsp;
+	<img src="https://raw.githubusercontent.com/agzg/ghicon/994529aaf83647e189ab6abb0550256ab2163896/examples/b.png" width="128"/>&nbsp;
+	<img src="https://raw.githubusercontent.com/agzg/ghicon/994529aaf83647e189ab6abb0550256ab2163896/examples/c.png" width="128"/>&nbsp;
+	<img src="https://raw.githubusercontent.com/agzg/ghicon/994529aaf83647e189ab6abb0550256ab2163896/examples/d.png" width="128"/>&nbsp;
+	<img src="https://raw.githubusercontent.com/agzg/ghicon/994529aaf83647e189ab6abb0550256ab2163896/examples/e.png" width="128"/>&nbsp;
+	<img src="https://raw.githubusercontent.com/agzg/ghicon/994529aaf83647e189ab6abb0550256ab2163896/examples/f.png" width="128"/>&nbsp;
 </p>
 
 ## License
