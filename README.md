@@ -17,7 +17,7 @@ image = ghicon.generate("agzg")
 image.save("agzg.png")
 ```
 
-**Note:** Following `v5.2.0`, you can use custom hashing functions to generate identicons via the `hasher` argument. Ensure the function you use only accepts a single string argument, and returns a hexadecimal string hash which is longer than 15 characters.
+**Note:** Following `v5.2.0`, you can use custom hashing functions to generate identicons via the `hasher` argument. Ensure the function you use only accepts a single string argument and returns a hexadecimal string hash longer than 15 characters.
 
 **Tip:** You can also invert the colours of the identicon to mix things up! Use the `invert` argument to do so.
 
